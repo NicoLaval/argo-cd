@@ -293,17 +293,15 @@ export class ReposList extends React.Component<RouteComponentProps<any>, {connec
                                 <div className='argo-form-row'>
                                     <FormField formApi={formApi} label='TLS client certificate key (optional)' field='tlsClientCertKey' component={TextArea} />
                                 </div>
+                                <div className='argo-form-row'>
+                                    <FormField formApi={formApi} label='Skip server verification' field='insecure' component={CheckboxField} />
+                                    <HelpIcon title='This setting is ignored when creating as credential template.' />
+                                </div>
                                 {formApi.getFormState().values.type === 'git' && (
-                                    <React.Fragment>
-                                        <div className='argo-form-row'>
-                                            <FormField formApi={formApi} label='Skip server verification' field='insecure' component={CheckboxField} />
-                                            <HelpIcon title='This setting is ignored when creating as credential template.' />
-                                        </div>
-                                        <div className='argo-form-row'>
-                                            <FormField formApi={formApi} label='Enable LFS support (Git only)' field='enableLfs' component={CheckboxField} />
-                                            <HelpIcon title='This setting is ignored when creating as credential template.' />
-                                        </div>
-                                    </React.Fragment>
+                                    <div className='argo-form-row'>
+                                        <FormField formApi={formApi} label='Enable LFS support (Git only)' field='enableLfs' component={CheckboxField} />
+                                        <HelpIcon title='This setting is ignored when creating as credential template.' />
+                                    </div>
                                 )}
                             </form>
                         )}
